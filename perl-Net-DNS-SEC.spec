@@ -17,12 +17,11 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl(Crypt::OpenSSL::Bignum) >= 0.03
-BuildRequires:	perl(Crypt::OpenSSL::DSA) >= 0.1
-BuildRequires:	perl(Crypt::OpenSSL::RSA) >= 0.19
-BuildRequires:	perl(Digest::BubbleBabble) >= 0.01
+BuildRequires:	perl-Crypt-OpenSSL-Bignum >= 0.03
+BuildRequires:	perl-Crypt-OpenSSL-DSA >= 0.1
+BuildRequires:	perl-Crypt-OpenSSL-RSA >= 0.19
+BuildRequires:	perl-Digest-BubbleBabble >= 0.01
 BuildRequires:	perl-Digest-SHA1
-BuildRequires:	perl-base
 BuildRequires:	perl-MIME-Base64
 BuildRequires:	perl-Net-DNS >= 0.44
 %endif
