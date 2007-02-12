@@ -6,7 +6,7 @@
 %define	pdir	Net
 %define	pnam	DNS-SEC
 Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
-Summary(pl):	Net::DNS::SEC - rozszerzenia DNSSEC dla Net::DNS
+Summary(pl.UTF-8):   Net::DNS::SEC - rozszerzenia DNSSEC dla Net::DNS
 Name:		perl-Net-DNS-SEC
 Version:	0.12
 Release:	1
@@ -33,9 +33,9 @@ The Net::DNS::SEC suit provides the resource records that are
 needed for Secure DNS (RFC2535). DNSSEC is a protocol that is still
 under development.
 
-%description -l pl
-Pakiet Net::DNS::SEC dostarcza rekordy zasobów potrzebne do obs³ugi
-Secure DNS (RFC2535). DNSSEC jest protoko³em bêd±cym jeszcze w
+%description -l pl.UTF-8
+Pakiet Net::DNS::SEC dostarcza rekordy zasobÃ³w potrzebne do obsÅ‚ugi
+Secure DNS (RFC2535). DNSSEC jest protokoÅ‚em bÄ™dÄ…cym jeszcze w
 stadium rozwoju.
 
 %prep
