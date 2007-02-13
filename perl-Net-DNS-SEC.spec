@@ -6,7 +6,7 @@
 %define	pdir	Net
 %define	pnam	DNS-SEC
 Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
-Summary(pl.UTF-8):   Net::DNS::SEC - rozszerzenia DNSSEC dla Net::DNS
+Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenia DNSSEC dla Net::DNS
 Name:		perl-Net-DNS-SEC
 Version:	0.12
 Release:	1
