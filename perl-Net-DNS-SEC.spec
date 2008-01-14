@@ -9,7 +9,7 @@ Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
 Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenia DNSSEC dla Net::DNS
 Name:		perl-Net-DNS-SEC
 Version:	0.12
-Release:	1
+Release:	2
 License:	BSD-like
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -29,14 +29,14 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The Net::DNS::SEC suit provides the resource records that are
-needed for Secure DNS (RFC2535). DNSSEC is a protocol that is still
-under development.
+The Net::DNS::SEC suit provides the resource records that are needed
+for Secure DNS (RFC2535). DNSSEC is a protocol that is still under
+development.
 
 %description -l pl.UTF-8
 Pakiet Net::DNS::SEC dostarcza rekordy zasobów potrzebne do obsługi
-Secure DNS (RFC2535). DNSSEC jest protokołem będącym jeszcze w
-stadium rozwoju.
+Secure DNS (RFC2535). DNSSEC jest protokołem będącym jeszcze w stadium
+rozwoju.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -61,7 +61,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes README TODO
 %{perl_vendorlib}/Net/DNS/*.pm
+%dir %{perl_vendorlib}/Net/DNS/RR
 %{perl_vendorlib}/Net/DNS/RR/*.pm
+%dir %{perl_vendorlib}/Net/DNS/RR/SIG
 %{perl_vendorlib}/Net/DNS/RR/SIG/*.pm
 %{perl_vendorlib}/Net/DNS/SEC
 %{_mandir}/man3/*
