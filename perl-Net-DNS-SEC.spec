@@ -6,38 +6,49 @@
 %define	pdir	Net
 %define	pnam	DNS-SEC
 Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
-Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenia DNSSEC dla Net::DNS
+Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenie DNSSEC do Net::DNS
 Name:		perl-Net-DNS-SEC
-Version:	0.14
+Version:	0.15
 Release:	1
-License:	BSD-like
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	a87e3e4c8467ea2d64408abae2abcfc6
+# Source0-md5:	69306bf134710ee2bd94b7b0a36d2be3
 URL:		http://search.cpan.org/dist/Net-DNS-SEC/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
+BuildRequires:	perl(MIME::Base32)
 BuildRequires:	perl-Crypt-OpenSSL-Bignum >= 0.03
 BuildRequires:	perl-Crypt-OpenSSL-DSA >= 0.1
 BuildRequires:	perl-Crypt-OpenSSL-RSA >= 0.19
 BuildRequires:	perl-Digest-BubbleBabble >= 0.01
 BuildRequires:	perl-Digest-SHA1
-BuildRequires:	perl-MIME-Base64
-BuildRequires:	perl-Net-DNS >= 0.44
+BuildRequires:	perl-Net-DNS >= 0.64
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The Net::DNS::SEC suit provides the resource records that are needed
-for Secure DNS (RFC2535). DNSSEC is a protocol that is still under
-development.
+The Net::DSN::SEC suite provides the resource records that are needed
+for DNSSEC (RFC 4033, 4034 and 4035). In addition the DLV RR, a clone
+of the DS RR is supported (RFC 4431)
 
-%description -l pl.UTF-8
-Pakiet Net::DNS::SEC dostarcza rekordy zasobów potrzebne do obsługi
-Secure DNS (RFC2535). DNSSEC jest protokołem będącym jeszcze w stadium
-rozwoju.
+It also provides support for SIG0. That later is useful for dynamic
+updates using key-pairs.
+
+RSA and DSA crypto routines are supported.
+
+For details see Net::DNS::RR::RRSIG, Net::DNS::RR::DNSKEY,
+Net::DNS::RR::NSEC, Net::DNS::RR:DS, Net::DNS::RR::DLV, and see
+Net::DNS::RR::SIG and Net::DNS::RR::KEY for the use with SIG0.
+
+Net::DNS contains all needed hooks to load the Net::DNS::SEC
+extensions when they are available.
+
+
+
+# %description -l pl.UTF-8 # TODO
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -52,7 +63,7 @@ rozwoju.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -62,7 +73,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changes README TODO
 %{perl_vendorlib}/Net/DNS/*.pm
-%dir %{perl_vendorlib}/Net/DNS/RR
 %{perl_vendorlib}/Net/DNS/RR/*.pm
 %{perl_vendorlib}/Net/DNS/SEC
 %{_mandir}/man3/*
