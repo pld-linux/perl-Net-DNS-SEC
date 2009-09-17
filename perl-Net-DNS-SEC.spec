@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_with	tests		# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Net
@@ -45,8 +45,6 @@ Net::DNS::RR::SIG and Net::DNS::RR::KEY for the use with SIG0.
 
 Net::DNS contains all needed hooks to load the Net::DNS::SEC
 extensions when they are available.
-
-
 
 # %description -l pl.UTF-8 # TODO
 
