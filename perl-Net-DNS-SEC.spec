@@ -1,12 +1,12 @@
 #
 # Conditional build:
-%bcond_with	tests		# do not perform "make test"
+%bcond_with	tests	# perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Net
 %define	pnam	DNS-SEC
 Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
-Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenie DNSSEC do Net::DNS
+Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenia DNSSEC do Net::DNS
 Name:		perl-Net-DNS-SEC
 Version:	0.16
 Release:	1
@@ -18,14 +18,21 @@ URL:		http://search.cpan.org/dist/Net-DNS-SEC/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl(MIME::Base32)
 BuildRequires:	perl-Crypt-OpenSSL-Bignum >= 0.03
 BuildRequires:	perl-Crypt-OpenSSL-DSA >= 0.1
 BuildRequires:	perl-Crypt-OpenSSL-RSA >= 0.19
 BuildRequires:	perl-Digest-BubbleBabble >= 0.01
+BuildRequires:	perl-Digest-SHA >= 5.23
 BuildRequires:	perl-Digest-SHA1
+BuildRequires:	perl-MIME-Base32
 BuildRequires:	perl-Net-DNS >= 0.64
+BuildRequires:	perl-Test-Simple >= 0.47
 %endif
+Requires:	perl-Crypt-OpenSSL-Bignum >= 0.03
+Requires:	perl-Crypt-OpenSSL-DSA >= 0.1
+Requires:	perl-Crypt-OpenSSL-RSA >= 0.19
+Requires:	perl-Digest-SHA >= 5.23
+Requires:	perl-Net-DNS >= 0.64
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -39,14 +46,21 @@ updates using key-pairs.
 
 RSA and DSA crypto routines are supported.
 
-For details see Net::DNS::RR::RRSIG, Net::DNS::RR::DNSKEY,
-Net::DNS::RR::NSEC, Net::DNS::RR:DS, Net::DNS::RR::DLV, and see
-Net::DNS::RR::SIG and Net::DNS::RR::KEY for the use with SIG0.
-
 Net::DNS contains all needed hooks to load the Net::DNS::SEC
 extensions when they are available.
 
-# %description -l pl.UTF-8 # TODO
+%description -l pl.UTF-8
+Moduły Net::DNS::SEC udostępniają rekordy porzebne do obsługi DNSSEC
+(RFC 4033, 4034 oraz 4035). Poza DLV RR obsługiwany jest też klon DS
+RR (RFC 4431).
+
+Pakiet udostępnia także obsługę SIG0. Jest to przydatne do
+dynamicznych uaktualnień przy użyciu par kluczy.
+
+Procedury kryptograficzne RSA i DSA są także obsługiwane.
+
+Moduł Net::DNS zawiera wszystkie uchwyty konieczne do wczytywania
+rozszerzeń Net::DNS::SEC w razie potrzeby.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -70,8 +84,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README TODO
-%{perl_vendorlib}/Net/DNS/*.pm
+%{perl_vendorlib}/Net/DNS/Keyset.pm
+%{perl_vendorlib}/Net/DNS/SEC.pm
 %dir %{perl_vendorlib}/Net/DNS/RR
 %{perl_vendorlib}/Net/DNS/RR/*.pm
 %{perl_vendorlib}/Net/DNS/SEC
-%{_mandir}/man3/*
+%{_mandir}/man3/Net::DNS::Keyset.3pm*
+%{_mandir}/man3/Net::DNS::RR::*.3pm*
+%{_mandir}/man3/Net::DNS::SEC*.3pm*
