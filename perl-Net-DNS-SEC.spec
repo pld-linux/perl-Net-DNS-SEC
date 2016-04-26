@@ -8,12 +8,12 @@
 Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
 Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenia DNSSEC do Net::DNS
 Name:		perl-Net-DNS-SEC
-Version:	0.16
+Version:	1.02
 Release:	1
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	70a8b59dda39a0effe22bfc12905d942
+# Source0-md5:	3d11216697d0fe43e74484b59f94188d
 URL:		http://search.cpan.org/dist/Net-DNS-SEC/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -37,7 +37,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-The Net::DSN::SEC suite provides the resource records that are needed
+The Net::DNS::SEC suite provides the resource records that are needed
 for DNSSEC (RFC 4033, 4034 and 4035). In addition the DLV RR, a clone
 of the DS RR is supported (RFC 4431)
 
@@ -83,12 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README TODO
-%{perl_vendorlib}/Net/DNS/Keyset.pm
+%doc Changes README
 %{perl_vendorlib}/Net/DNS/SEC.pm
-%dir %{perl_vendorlib}/Net/DNS/RR
-%{perl_vendorlib}/Net/DNS/RR/*.pm
 %{perl_vendorlib}/Net/DNS/SEC
-%{_mandir}/man3/Net::DNS::Keyset.3pm*
-%{_mandir}/man3/Net::DNS::RR::*.3pm*
 %{_mandir}/man3/Net::DNS::SEC*.3pm*
