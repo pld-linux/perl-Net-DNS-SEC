@@ -18,21 +18,22 @@ URL:		http://search.cpan.org/dist/Net-DNS-SEC/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl-Crypt-OpenSSL-Bignum >= 0.03
-BuildRequires:	perl-Crypt-OpenSSL-DSA >= 0.1
-BuildRequires:	perl-Crypt-OpenSSL-RSA >= 0.19
+BuildRequires:	perl-Crypt-OpenSSL-Bignum >= 0.04
+BuildRequires:	perl-Crypt-OpenSSL-DSA >= 0.14
+BuildRequires:	perl-Crypt-OpenSSL-RSA >= 0.27
 BuildRequires:	perl-Digest-BubbleBabble >= 0.01
 BuildRequires:	perl-Digest-SHA >= 5.23
 BuildRequires:	perl-Digest-SHA1
-BuildRequires:	perl-MIME-Base32
-BuildRequires:	perl-Net-DNS >= 0.64
+BuildRequires:	perl-MIME-Base64 >= 2.11
+BuildRequires:	perl-Net-DNS >= 1.01
 BuildRequires:	perl-Test-Simple >= 0.47
 %endif
-Requires:	perl-Crypt-OpenSSL-Bignum >= 0.03
-Requires:	perl-Crypt-OpenSSL-DSA >= 0.1
-Requires:	perl-Crypt-OpenSSL-RSA >= 0.19
+Requires:	perl-Crypt-OpenSSL-Bignum >= 0.04
+Requires:	perl-Crypt-OpenSSL-DSA >= 0.14
+Requires:	perl-Crypt-OpenSSL-RSA >= 0.27
 Requires:	perl-Digest-SHA >= 5.23
-Requires:	perl-Net-DNS >= 0.64
+Requires:	perl-MIME-Base64 >= 2.11
+Requires:	perl-Net-DNS >= 1.01
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
