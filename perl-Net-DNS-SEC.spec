@@ -8,12 +8,12 @@
 Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
 Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenia DNSSEC do Net::DNS
 Name:		perl-Net-DNS-SEC
-Version:	1.02
+Version:	1.14
 Release:	1
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	3d11216697d0fe43e74484b59f94188d
+# Source0-md5:	1aced289ab0adee0dcca59691f9c202a
 URL:		http://search.cpan.org/dist/Net-DNS-SEC/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -34,7 +34,6 @@ Requires:	perl-Crypt-OpenSSL-RSA >= 0.27
 Requires:	perl-Digest-SHA >= 5.23
 Requires:	perl-MIME-Base64 >= 2.11
 Requires:	perl-Net-DNS >= 1.01
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -85,6 +84,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
-%{perl_vendorlib}/Net/DNS/SEC.pm
-%{perl_vendorlib}/Net/DNS/SEC
+%dir %{perl_vendorarch}/auto/Net/DNS
+%dir %{perl_vendorarch}/auto/Net/DNS/SEC
+%attr(755,root,root) %{perl_vendorarch}/auto/Net/DNS/SEC/SEC.so
+%{perl_vendorarch}/Net/DNS/SEC.pm
+%{perl_vendorarch}/Net/DNS/SEC
 %{_mandir}/man3/Net::DNS::SEC*.3pm*
