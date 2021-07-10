@@ -7,32 +7,32 @@
 Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
 Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenia DNSSEC do Net::DNS
 Name:		perl-Net-DNS-SEC
-Version:	1.14
-Release:	3
+Version:	1.18
+Release:	1
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	1aced289ab0adee0dcca59691f9c202a
-URL:		http://search.cpan.org/dist/Net-DNS-SEC/
+# Source0-md5:	5bcda505bc2f1226a5e855cd6050c79f
+URL:		https://metacpan.org/dist/Net-DNS-SEC
+BuildRequires:	openssl-devel
 BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
-BuildRequires:	perl-Crypt-OpenSSL-Bignum >= 0.04
-BuildRequires:	perl-Crypt-OpenSSL-DSA >= 0.14
-BuildRequires:	perl-Crypt-OpenSSL-RSA >= 0.27
-BuildRequires:	perl-Digest-BubbleBabble >= 0.01
+BuildRequires:	perl(DynaLoader) >= 1.04
+BuildRequires:	perl(Exporter) >= 5.56
+BuildRequires:	perl(File::Find) >= 1.05
+BuildRequires:	perl(File::Spec) >= 0.86
+BuildRequires:	perl-Carp >= 1.10
 BuildRequires:	perl-Digest-SHA >= 5.23
-BuildRequires:	perl-Digest-SHA1
-BuildRequires:	perl-MIME-Base64 >= 2.11
-BuildRequires:	perl-Net-DNS >= 1.01
+BuildRequires:	perl-MIME-Base64 >= 2.13
+BuildRequires:	perl-Net-DNS >= 1.08
 BuildRequires:	perl-Test-Simple >= 0.47
 %endif
-Requires:	perl-Crypt-OpenSSL-Bignum >= 0.04
-Requires:	perl-Crypt-OpenSSL-DSA >= 0.14
-Requires:	perl-Crypt-OpenSSL-RSA >= 0.27
 Requires:	perl-Digest-SHA >= 5.23
-Requires:	perl-MIME-Base64 >= 2.11
-Requires:	perl-Net-DNS >= 1.01
+Requires:	perl-MIME-Base64 >= 2.13
+Requires:	perl-Net-DNS >= 1.08
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
