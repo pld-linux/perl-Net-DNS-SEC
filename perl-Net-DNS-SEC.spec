@@ -1,34 +1,35 @@
 #
 # Conditional build:
-%bcond_with	tests	# perform "make test"
+%bcond_with	tests	# unit tests
 #
 %define	pdir	Net
 %define	pnam	DNS-SEC
 Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
 Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenia DNSSEC do Net::DNS
 Name:		perl-Net-DNS-SEC
-Version:	1.19
-Release:	2
+Version:	1.20
+Release:	1
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	dd92862571d7e8526f57af8d66a78d49
+Source0:	https://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	75197a1cb096faebd614f17b4ae2f2f8
 URL:		https://metacpan.org/dist/Net-DNS-SEC
 BuildRequires:	openssl-devel
-BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-devel >= 1:5.8.9
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	perl(DynaLoader) >= 1.04
 BuildRequires:	perl(Exporter) >= 5.56
-BuildRequires:	perl(File::Find) >= 1.05
-BuildRequires:	perl(File::Spec) >= 0.86
+BuildRequires:	perl(File::Find) >= 1.13
+BuildRequires:	perl(File::Spec) >= 3.29
+BuildRequires:	perl(IO::File) >= 1.14
 BuildRequires:	perl-Carp >= 1.10
 BuildRequires:	perl-Digest-SHA >= 5.23
 BuildRequires:	perl-MIME-Base64 >= 2.13
 BuildRequires:	perl-Net-DNS >= 1.08
-BuildRequires:	perl-Test-Simple >= 0.47
+BuildRequires:	perl-Test-Simple >= 0.80
 %endif
 Requires:	perl-Digest-SHA >= 5.23
 Requires:	perl-MIME-Base64 >= 2.13
