@@ -7,14 +7,15 @@
 Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
 Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenia DNSSEC do Net::DNS
 Name:		perl-Net-DNS-SEC
-Version:	1.20
-Release:	2
-License:	GPL v1+ or Artistic
+Version:	1.24
+Release:	1
+License:	MIT
 Group:		Development/Languages/Perl
 Source0:	https://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	75197a1cb096faebd614f17b4ae2f2f8
+# Source0-md5:	63879e0f104320f63633be7d4b02b851
 URL:		https://metacpan.org/dist/Net-DNS-SEC
 BuildRequires:	openssl-devel
+BuildRequires:	perl-ExtUtils-MakeMaker >= 6.48
 BuildRequires:	perl-devel >= 1:5.8.9
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -27,12 +28,12 @@ BuildRequires:	perl(File::Spec) >= 3.29
 BuildRequires:	perl(IO::File) >= 1.14
 BuildRequires:	perl-Carp >= 1.10
 BuildRequires:	perl-Digest-SHA >= 5.23
-BuildRequires:	perl-MIME-Base64 >= 2.13
+BuildRequires:	perl-MIME-Base64 >= 3.07
 BuildRequires:	perl-Net-DNS >= 1.08
 BuildRequires:	perl-Test-Simple >= 0.80
 %endif
 Requires:	perl-Digest-SHA >= 5.23
-Requires:	perl-MIME-Base64 >= 2.13
+Requires:	perl-MIME-Base64 >= 3.07
 Requires:	perl-Net-DNS >= 1.08
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -83,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Changes README
+%doc Changes LICENSE README
 %dir %{perl_vendorarch}/auto/Net/DNS
 %dir %{perl_vendorarch}/auto/Net/DNS/SEC
 %attr(755,root,root) %{perl_vendorarch}/auto/Net/DNS/SEC/SEC.so
