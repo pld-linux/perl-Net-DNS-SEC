@@ -7,12 +7,12 @@
 Summary:	Net::DNS::SEC - DNSSEC extensions to Net::DNS
 Summary(pl.UTF-8):	Net::DNS::SEC - rozszerzenia DNSSEC do Net::DNS
 Name:		perl-Net-DNS-SEC
-Version:	1.24
-Release:	3
+Version:	1.26
+Release:	1
 License:	MIT
 Group:		Development/Languages/Perl
 Source0:	https://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	63879e0f104320f63633be7d4b02b851
+# Source0-md5:	623ffb332fd0ad8aa4767feef7e66833
 URL:		https://metacpan.org/dist/Net-DNS-SEC
 BuildRequires:	openssl-devel
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.48
@@ -21,7 +21,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
-BuildRequires:	perl(DynaLoader) >= 1.04
+BuildRequires:	perl(DynaLoader) >= 1.09
 BuildRequires:	perl(Exporter) >= 5.56
 BuildRequires:	perl(File::Find) >= 1.13
 BuildRequires:	perl(File::Spec) >= 3.29
